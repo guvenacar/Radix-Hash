@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Kullanıcı tarafından eklenenler
+proje_olustur.py
+*copy*
+tum_kodlari_yazdir.sh
+tree.sh
+test/
+results/
+*_tr.*
