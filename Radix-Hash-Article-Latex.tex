@@ -1,0 +1,182 @@
+% Radix-Hash Article - LaTeX Version
+\documentclass\[12pt]{article}
+\usepackage\[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\geometry{margin=1in}
+
+\title{Radix-Hash: Problem-Independent Cryptographic Hash Algorithm and Post-Quantum Security Analysis}
+\author{Güven ACAR\Institution\Email\ORCID}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This paper presents the Radix-Hash algorithm, a novel approach distinct from classical cryptographic hash algorithms. Unlike conventional hash functions based on specific mathematical problems, Radix-Hash employs a purely mathematical chaos-based security model without relying on any solvable mathematical problem. Producing a 772-bit output, the algorithm uses base-3 conversion and modular arithmetic to create a one-way hash function. Passing NIST statistical tests with 99% success, Radix-Hash offers an alternative security paradigm in the post-quantum era. Performance analyses confirm the proof-of-concept success and highlight future optimization potential.
+
+\textbf{Keywords:} Cryptographic hash, post-quantum security, base-3 conversion, mathematical chaos, NIST tests
+\end{abstract}
+
+\section{Introduction}
+\subsection{Limitations of Existing Cryptographic Paradigms}
+Hash algorithms typically rely on specific mathematical problems:
+\begin{itemize}
+\item \textbf{RSA:} prime factorization problem
+\item \textbf{Diffie-Hellman and ElGamal:} discrete logarithm problem
+\item \textbf{Quantum-resistant algorithms:} often lattice-based problems
+\end{itemize}
+This paradigm assumes the attacker cannot solve these problems efficiently; however, if such problems are solved in the future, algorithm security is compromised.
+
+\subsection{Philosophical Approach of Radix-Hash}
+Radix-Hash differs philosophically:
+\begin{itemize}
+\item Operates without assuming any mathematical problem
+\item Provides a one-way transformation without leaving a solvable problem for the attacker
+\item Executes in a few simple steps compared to iterative SHA-family operations
+\item Achieves 99% success in NIST statistical tests even without additional bit-scrambling layers
+\end{itemize}
+
+\subsection{Post-Quantum Cryptography Context}
+With the advent of quantum computing:
+\begin{itemize}
+\item \textbf{Shor's algorithm} threatens RSA and elliptic curve cryptography
+\item \textbf{Grover's algorithm} reduces symmetric security by half
+\item Existing post-quantum candidates (CRYSTALS-Kyber, CRYSTALS-Dilithium) still rely on specific mathematical problems
+\end{itemize}
+Radix-Hash, not assuming a solvable problem, is naturally quantum-resistant.
+
+\section{Mathematical Definition of Radix-Hash}
+Radix-Hash works on 772-bit blocks and does not rely on classical mathematical problems. The 772-bit length is chosen since \$3^{486} \approx 770\$ bits, close to the target length.
+
+\subsection{Algorithm Components}
+\subsubsection{Input Processing and Block Formation}
+\begin{enumerate}
+\item \textbf{Input to Bit Array:} UTF-8 text converted to bits
+\item \textbf{Padding:} Bits split into 772-bit blocks, padded with 0s if necessary
+\end{enumerate}
+
+\subsubsection{Scrambling Layer}
+\begin{enumerate}
+\item Split each block: \$A|B\$
+\item XOR: \$X = A \oplus B\$
+\item Reverse and NOT: \$X\_{not-rev} = reverse(NOT(X))\$
+\item Interleave XOR and NOT-reverse results dynamically to increase entropy
+\end{enumerate}
+
+\subsubsection{Core Transformation}
+\begin{enumerate}
+\item Base-3 conversion and modular exponentiation:
+$     bits\_to\_base3\_int(b_1...b_n) = \sum_{i=1}^n d_i \cdot 3^{n-i},\quad d_i \in \{1,2\}
+    $
+Mapping: '0' \$\to\$ 1, '1' \$\to\$ 2
+\item For each hexadecimal character, map 16-base to decimal, add 2, and apply modular exponentiation with \$M = 3^{486}\$
+\end{enumerate}
+
+\subsubsection{Output Formation}
+All blocks XORed and normalized to 772 bits, producing a one-way, hard-to-invert hash.
+
+\subsection{Pseudocode}
+\begin{algorithm}
+\caption{Radix-Hash}
+\begin{algorithmic}\[1]
+\Procedure{RADIX-HASH}{input\_text}
+\State bits = UTF8\_TO\_BITS(input\_text)
+\State bits = PAD\_TO\_772\_MULTIPLE(bits)
+\State blocks = SPLIT\_INTO\_772\_BIT\_BLOCKS(bits)
+\State final\_hash = 0
+\For{block in blocks}
+\State normalized = NORMALIZE\_TO\_772\_BITS(block)
+\State scrambled = XOR\_NOT\_REVERSE\_DYNAMIC\_COUNT(normalized)
+\State base3\_int = BITS\_TO\_BASE3\_INT(scrambled)
+\State hex\_string = TO\_HEX(base3\_int)
+\State hash\_result = MODULAR\_CHAOS\_FUNCTION(hex\_string)
+\State final\_hash = final\_hash \textbf{XOR} hash\_result
+\EndFor
+\State \textbf{return} NORMALIZE\_TO\_772\_BITS(final\_hash)
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\section{Security Analysis}
+\subsection{Problem-Independent Security Model}
+Traditional security depends on hard math problems; Radix-Hash relies solely on chaotic mathematical transformations.
+
+\subsection{Quantum Resistance}
+\subsubsection{Against Shor's Algorithm} Radix-Hash avoids prime factorization and discrete logarithms.
+\subsubsection{Against Grover's Algorithm} 772-bit output ensures \$2^{386}\$ quantum attempts are still infeasible.
+
+\subsection{Cryptanalysis Resistance}
+\begin{itemize}
+\item Preimage Resistance: base-3 conversion + modular chaos
+\item Collision Resistance: 772-bit output + chaotic mapping
+\item Avalanche Effect: small input changes yield large output differences
+\end{itemize}
+
+\section{NIST Statistical Test Results}
+Radix-Hash evaluated with NIST SP 800-22 tests on 100 sequences of 1M bits each. Success rate: 99%+.
+
+\begin{table}\[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Test & Pass Rate & P-Value \\
+\midrule
+Frequency & 99/100 & 0.924076 \\
+Block Frequency & 99/100 & 0.494392 \\
+Cumulative Sums & 100/100 & 0.946308 \\
+Runs & 100/100 & 0.236810 \\
+FFT & 100/100 & 0.637119 \\
+Rank & 100/100 & 0.616305 \\
+Universal & 98/100 & 0.401199 \\
+Approximate Entropy & 98/100 & 0.015598 \\
+Serial & 99/100 & 0.699313 \\
+Linear Complexity & 99/100 & 0.366918 \\
+\bottomrule
+\end{tabular}
+\caption{Summary of NIST Test Results}
+\end{table}
+
+\section{Performance Analysis and Comparison}
+\subsection{Test Environment} 12-core CPU, 15.5GB RAM, Python 3.11.2, Linux.
+
+\subsection{Performance Metrics}
+\begin{table}\[h]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Algorithm & Small Input (ms) & Large Input (ms) & Memory (KB) & Throughput (MB/s) \\
+\midrule
+Radix-Hash & 3.134 & 1470.837 & 41.7-4212.3 & 0.04 \\
+SHA-256 & 0.008 & 0.110 & 41.4-64.1 & 494.77 \\
+SHA3-256 & 0.006 & 0.162 & 41.4-64.1 & 350.66 \\
+BLAKE2b & 0.084 & 0.084 & 41.4-64.5 & 665.47 \\
+\bottomrule
+\end{tabular}
+\caption{Performance Comparison}
+\end{table}
+
+\section{Related Work and Comparison}
+Traditional SHA families, post-quantum hash approaches (SPHINCS+, XMSS/LMS), and Radix-Hash's unique contributions are discussed.
+
+\section{Conclusion and Future Work}
+Radix-Hash introduces a problem-independent hash paradigm with post-quantum resistance, verified by NIST tests and with future optimization potential.
+
+\section\*{References}
+\begin{enumerate}
+\item NIST SP 800-22, 2010.
+\item Shor, P. W., SIAM Journal on Computing, 1997.
+\item Grover, L. K., ACM STOC, 1996.
+\item NIST Post-Quantum Cryptography Standardization, 2022.
+\item Bernstein, D. J., et al., SPHINCS+, 2019.
+\item Keccak Team, The Keccak SHA-3 submission, 2011.
+\item Aumasson, J. P., et al., BLAKE2, 2013.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,269 @@
+================================================================================
+RADIX-HASH PERFORMANCE BENCHMARK REPORT
+================================================================================
+
+System Information:
+- CPU: 12 cores
+- Memory: 15.5 GB
+- Python: 3.11.2 (main, Apr 28 2025, 14:11:48) [GCC 12.2.0]
+
+PERFORMANCE COMPARISON (Average Values)
+--------------------------------------------------------------------------------
+Algorithm       Category   Time (ms)    Memory (KB)  Throughput (MB/s)
+--------------------------------------------------------------------------------
+Radix-Hash      small      3.134        41.7         0.00           
+Radix-Hash      medium     25.123       67.8         0.03           
+Radix-Hash      large      1470.837     4212.3       0.04           
+Radix-Hash      patterns   249.889      723.7        0.04           
+SHA-256         small      0.008        41.4         0.99           
+SHA-256         medium     0.010        41.3         128.42         
+SHA-256         large      0.110        64.1         494.77         
+SHA-256         patterns   0.022        41.3         442.66         
+SHA3-256        small      0.006        41.4         0.97           
+SHA3-256        medium     0.007        41.3         132.87         
+SHA3-256        large      0.162        64.1         350.66         
+SHA3-256        patterns   0.032        41.3         334.38         
+SHA3-512        small      0.006        41.4         0.98           
+SHA3-512        medium     0.009        41.3         102.22         
+SHA3-512        large      0.261        64.1         201.25         
+SHA3-512        patterns   0.048        41.3         205.14         
+BLAKE2b         small      5.539        41.4         1.45           
+BLAKE2b         medium     0.004        41.3         201.68         
+BLAKE2b         large      0.084        64.5         665.47         
+BLAKE2b         patterns   0.016        41.3         595.35         
+
+
+Radix-Hash - DETAILED ANALYSIS
+----------------------------------------
+
+SMALL INPUTS:
+  Average time: 3.134 ms
+  Min time: 2.639 ms
+  Max time: 3.775 ms
+  Median time: 3.084 ms
+  Average memory: 41.7 KB
+  Max memory: 41.9 KB
+  Throughput: 0.00 MB/s
+  Samples: 5
+
+MEDIUM INPUTS:
+  Average time: 25.123 ms
+  Min time: 18.653 ms
+  Max time: 30.343 ms
+  Median time: 25.570 ms
+  Average memory: 67.8 KB
+  Max memory: 81.6 KB
+  Throughput: 0.03 MB/s
+  Samples: 5
+
+LARGE INPUTS:
+  Average time: 1470.837 ms
+  Min time: 248.453 ms
+  Max time: 2208.600 ms
+  Median time: 1515.322 ms
+  Average memory: 4212.3 KB
+  Max memory: 6281.8 KB
+  Throughput: 0.04 MB/s
+  Samples: 5
+
+PATTERNS INPUTS:
+  Average time: 249.889 ms
+  Min time: 229.809 ms
+  Max time: 263.133 ms
+  Median time: 253.529 ms
+  Average memory: 723.7 KB
+  Max memory: 744.0 KB
+  Throughput: 0.04 MB/s
+  Samples: 5
+
+SHA-256 - DETAILED ANALYSIS
+----------------------------------------
+
+SMALL INPUTS:
+  Average time: 0.008 ms
+  Min time: 0.004 ms
+  Max time: 0.025 ms
+  Median time: 0.004 ms
+  Average memory: 41.4 KB
+  Max memory: 41.4 KB
+  Throughput: 0.99 MB/s
+  Samples: 5
+
+MEDIUM INPUTS:
+  Average time: 0.010 ms
+  Min time: 0.006 ms
+  Max time: 0.025 ms
+  Median time: 0.006 ms
+  Average memory: 41.3 KB
+  Max memory: 41.4 KB
+  Throughput: 128.42 MB/s
+  Samples: 5
+
+LARGE INPUTS:
+  Average time: 0.110 ms
+  Min time: 0.022 ms
+  Max time: 0.158 ms
+  Median time: 0.127 ms
+  Average memory: 64.1 KB
+  Max memory: 86.4 KB
+  Throughput: 494.77 MB/s
+  Samples: 5
+
+PATTERNS INPUTS:
+  Average time: 0.022 ms
+  Min time: 0.021 ms
+  Max time: 0.022 ms
+  Median time: 0.021 ms
+  Average memory: 41.3 KB
+  Max memory: 41.4 KB
+  Throughput: 442.66 MB/s
+  Samples: 5
+
+SHA3-256 - DETAILED ANALYSIS
+----------------------------------------
+
+SMALL INPUTS:
+  Average time: 0.006 ms
+  Min time: 0.004 ms
+  Max time: 0.014 ms
+  Median time: 0.004 ms
+  Average memory: 41.4 KB
+  Max memory: 41.4 KB
+  Throughput: 0.97 MB/s
+  Samples: 5
+
+MEDIUM INPUTS:
+  Average time: 0.007 ms
+  Min time: 0.006 ms
+  Max time: 0.008 ms
+  Median time: 0.006 ms
+  Average memory: 41.3 KB
+  Max memory: 41.4 KB
+  Throughput: 132.87 MB/s
+  Samples: 5
+
+LARGE INPUTS:
+  Average time: 0.162 ms
+  Min time: 0.027 ms
+  Max time: 0.251 ms
+  Median time: 0.181 ms
+  Average memory: 64.1 KB
+  Max memory: 86.4 KB
+  Throughput: 350.66 MB/s
+  Samples: 5
+
+PATTERNS INPUTS:
+  Average time: 0.032 ms
+  Min time: 0.025 ms
+  Max time: 0.055 ms
+  Median time: 0.026 ms
+  Average memory: 41.3 KB
+  Max memory: 41.4 KB
+  Throughput: 334.38 MB/s
+  Samples: 5
+
+SHA3-512 - DETAILED ANALYSIS
+----------------------------------------
+
+SMALL INPUTS:
+  Average time: 0.006 ms
+  Min time: 0.004 ms
+  Max time: 0.013 ms
+  Median time: 0.004 ms
+  Average memory: 41.4 KB
+  Max memory: 41.4 KB
+  Throughput: 0.98 MB/s
+  Samples: 5
+
+MEDIUM INPUTS:
+  Average time: 0.009 ms
+  Min time: 0.008 ms
+  Max time: 0.010 ms
+  Median time: 0.009 ms
+  Average memory: 41.3 KB
+  Max memory: 41.4 KB
+  Throughput: 102.22 MB/s
+  Samples: 5
+
+LARGE INPUTS:
+  Average time: 0.261 ms
+  Min time: 0.074 ms
+  Max time: 0.373 ms
+  Median time: 0.285 ms
+  Average memory: 64.1 KB
+  Max memory: 86.4 KB
+  Throughput: 201.25 MB/s
+  Samples: 5
+
+PATTERNS INPUTS:
+  Average time: 0.048 ms
+  Min time: 0.044 ms
+  Max time: 0.059 ms
+  Median time: 0.044 ms
+  Average memory: 41.3 KB
+  Max memory: 41.4 KB
+  Throughput: 205.14 MB/s
+  Samples: 5
+
+BLAKE2b - DETAILED ANALYSIS
+----------------------------------------
+
+SMALL INPUTS:
+  Average time: 5.539 ms
+  Min time: 0.002 ms
+  Max time: 27.684 ms
+  Median time: 0.003 ms
+  Average memory: 41.4 KB
+  Max memory: 41.4 KB
+  Throughput: 1.45 MB/s
+  Samples: 5
+
+MEDIUM INPUTS:
+  Average time: 0.004 ms
+  Min time: 0.004 ms
+  Max time: 0.005 ms
+  Median time: 0.004 ms
+  Average memory: 41.3 KB
+  Max memory: 41.4 KB
+  Throughput: 201.68 MB/s
+  Samples: 5
+
+LARGE INPUTS:
+  Average time: 0.084 ms
+  Min time: 0.016 ms
+  Max time: 0.136 ms
+  Median time: 0.077 ms
+  Average memory: 64.5 KB
+  Max memory: 86.8 KB
+  Throughput: 665.47 MB/s
+  Samples: 5
+
+PATTERNS INPUTS:
+  Average time: 0.016 ms
+  Min time: 0.015 ms
+  Max time: 0.019 ms
+  Median time: 0.016 ms
+  Average memory: 41.3 KB
+  Max memory: 41.4 KB
+  Throughput: 595.35 MB/s
+  Samples: 5
+
+==================================================
+RADIX-HASH vs SHA-256 COMPARISON
+==================================================
+
+SMALL Category:
+  SHA-256 is 387.14x faster than Radix-Hash
+  Radix-Hash uses 1.01x MORE memory than SHA-256
+
+MEDIUM Category:
+  SHA-256 is 2509.72x faster than Radix-Hash
+  Radix-Hash uses 1.64x MORE memory than SHA-256
+
+LARGE Category:
+  SHA-256 is 13353.19x faster than Radix-Hash
+  Radix-Hash uses 65.68x MORE memory than SHA-256
+
+PATTERNS Category:
+  SHA-256 is 11505.53x faster than Radix-Hash
+  Radix-Hash uses 17.51x MORE memory than SHA-256

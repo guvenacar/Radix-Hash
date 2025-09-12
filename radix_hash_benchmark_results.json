@@ -1,0 +1,272 @@
+{
+  "Radix-Hash": {
+    "small": {
+      "algorithm": "Radix-Hash",
+      "category": "small",
+      "avg_time": 0.003133994399104267,
+      "min_time": 0.002639436977915466,
+      "max_time": 0.00377470999956131,
+      "median_time": 0.0030841249972581863,
+      "avg_memory": 42671.6,
+      "max_memory": 42950,
+      "avg_input_size": 5,
+      "throughput_mb_s": 0.0016121280051739043,
+      "samples": 5
+    },
+    "medium": {
+      "algorithm": "Radix-Hash",
+      "category": "medium",
+      "avg_time": 0.025123265595175324,
+      "min_time": 0.018652798957191408,
+      "max_time": 0.030342929007019848,
+      "median_time": 0.025570493016857654,
+      "avg_memory": 69382.4,
+      "max_memory": 83513,
+      "avg_input_size": 924,
+      "throughput_mb_s": 0.034898647374265755,
+      "samples": 5
+    },
+    "large": {
+      "algorithm": "Radix-Hash",
+      "category": "large",
+      "avg_time": 1.4708374662091956,
+      "min_time": 0.24845330201787874,
+      "max_time": 2.208600400015712,
+      "median_time": 1.515321845014114,
+      "avg_memory": 4313348.2,
+      "max_memory": 6432609,
+      "avg_input_size": 58800,
+      "throughput_mb_s": 0.03814651279230124,
+      "samples": 5
+    },
+    "patterns": {
+      "algorithm": "Radix-Hash",
+      "category": "patterns",
+      "avg_time": 0.24988864118931814,
+      "min_time": 0.2298093109857291,
+      "max_time": 0.26313335698796436,
+      "median_time": 0.25352883798768744,
+      "avg_memory": 741021.8,
+      "max_memory": 761809,
+      "avg_input_size": 10080,
+      "throughput_mb_s": 0.03853452509539409,
+      "samples": 5
+    }
+  },
+  "SHA-256": {
+    "small": {
+      "algorithm": "SHA-256",
+      "category": "small",
+      "avg_time": 8.095195516943931e-06,
+      "min_time": 3.676977939903736e-06,
+      "max_time": 2.4695007596164942e-05,
+      "median_time": 3.963999915868044e-06,
+      "avg_memory": 42343.6,
+      "max_memory": 42382,
+      "avg_input_size": 5,
+      "throughput_mb_s": 0.9945898736194768,
+      "samples": 5
+    },
+    "medium": {
+      "algorithm": "SHA-256",
+      "category": "medium",
+      "avg_time": 1.0010390542447568e-05,
+      "min_time": 5.810987204313278e-06,
+      "max_time": 2.534798113629222e-05,
+      "median_time": 6.439979188144207e-06,
+      "avg_memory": 42330.8,
+      "max_memory": 42382,
+      "avg_input_size": 924,
+      "throughput_mb_s": 128.4235971089483,
+      "samples": 5
+    },
+    "large": {
+      "algorithm": "SHA-256",
+      "category": "large",
+      "avg_time": 0.00011014880146831274,
+      "min_time": 2.2053951397538185e-05,
+      "max_time": 0.00015849899500608444,
+      "median_time": 0.0001265450264327228,
+      "avg_memory": 65674,
+      "max_memory": 88497,
+      "avg_input_size": 58800,
+      "throughput_mb_s": 494.7696534031312,
+      "samples": 5
+    },
+    "patterns": {
+      "algorithm": "SHA-256",
+      "category": "patterns",
+      "avg_time": 2.1719001233577727e-05,
+      "min_time": 2.140301512554288e-05,
+      "max_time": 2.2177991922944784e-05,
+      "median_time": 2.1476007532328367e-05,
+      "avg_memory": 42330.8,
+      "max_memory": 42382,
+      "avg_input_size": 10080,
+      "throughput_mb_s": 442.657051274584,
+      "samples": 5
+    }
+  },
+  "SHA3-256": {
+    "small": {
+      "algorithm": "SHA3-256",
+      "category": "small",
+      "avg_time": 6.071000825613737e-06,
+      "min_time": 3.941997420042753e-06,
+      "max_time": 1.3553013559430838e-05,
+      "median_time": 4.237983375787735e-06,
+      "avg_memory": 42343.6,
+      "max_memory": 42382,
+      "avg_input_size": 5,
+      "throughput_mb_s": 0.974109151652025,
+      "samples": 5
+    },
+    "medium": {
+      "algorithm": "SHA3-256",
+      "category": "medium",
+      "avg_time": 6.593193393200636e-06,
+      "min_time": 5.976005923002958e-06,
+      "max_time": 7.500988431274891e-06,
+      "median_time": 6.482994649559259e-06,
+      "avg_memory": 42330.8,
+      "max_memory": 42382,
+      "avg_input_size": 924,
+      "throughput_mb_s": 132.87405558345918,
+      "samples": 5
+    },
+    "large": {
+      "algorithm": "SHA3-256",
+      "category": "large",
+      "avg_time": 0.0001615609973669052,
+      "min_time": 2.7196016162633896e-05,
+      "max_time": 0.0002514359657652676,
+      "median_time": 0.00018101104069501162,
+      "avg_memory": 65674,
+      "max_memory": 88497,
+      "avg_input_size": 58800,
+      "throughput_mb_s": 350.6627459372047,
+      "samples": 5
+    },
+    "patterns": {
+      "algorithm": "SHA3-256",
+      "category": "patterns",
+      "avg_time": 3.150460543110967e-05,
+      "min_time": 2.5237968657165766e-05,
+      "max_time": 5.458004307001829e-05,
+      "median_time": 2.5640998501330614e-05,
+      "avg_memory": 42330.8,
+      "max_memory": 42382,
+      "avg_input_size": 10080,
+      "throughput_mb_s": 334.38399603740913,
+      "samples": 5
+    }
+  },
+  "SHA3-512": {
+    "small": {
+      "algorithm": "SHA3-512",
+      "category": "small",
+      "avg_time": 6.037193816155195e-06,
+      "min_time": 3.819004632532597e-06,
+      "max_time": 1.3316981494426727e-05,
+      "median_time": 4.299974534660578e-06,
+      "avg_memory": 42343.6,
+      "max_memory": 42382,
+      "avg_input_size": 5,
+      "throughput_mb_s": 0.9755453531095362,
+      "samples": 5
+    },
+    "medium": {
+      "algorithm": "SHA3-512",
+      "category": "medium",
+      "avg_time": 8.569203782826661e-06,
+      "min_time": 7.581023965030909e-06,
+      "max_time": 9.572017006576061e-06,
+      "median_time": 8.643954060971737e-06,
+      "avg_memory": 42330.8,
+      "max_memory": 42382,
+      "avg_input_size": 924,
+      "throughput_mb_s": 102.22254983867724,
+      "samples": 5
+    },
+    "large": {
+      "algorithm": "SHA3-512",
+      "category": "large",
+      "avg_time": 0.0002614571945741773,
+      "min_time": 7.418100722134113e-05,
+      "max_time": 0.00037306896410882473,
+      "median_time": 0.00028466799994930625,
+      "avg_memory": 65674,
+      "max_memory": 88497,
+      "avg_input_size": 58800,
+      "throughput_mb_s": 201.24775818854513,
+      "samples": 5
+    },
+    "patterns": {
+      "algorithm": "SHA3-512",
+      "category": "patterns",
+      "avg_time": 4.7512410674244165e-05,
+      "min_time": 4.4043001253157854e-05,
+      "max_time": 5.945900920778513e-05,
+      "median_time": 4.414899740368128e-05,
+      "avg_memory": 42330.8,
+      "max_memory": 42382,
+      "avg_input_size": 10080,
+      "throughput_mb_s": 205.14065517383742,
+      "samples": 5
+    }
+  },
+  "BLAKE2b": {
+    "small": {
+      "algorithm": "BLAKE2b",
+      "category": "small",
+      "avg_time": 0.005538994388189167,
+      "min_time": 2.243963535875082e-06,
+      "max_time": 0.027684069995302707,
+      "median_time": 2.5170156732201576e-06,
+      "avg_memory": 42343.6,
+      "max_memory": 42382,
+      "avg_input_size": 5,
+      "throughput_mb_s": 1.45458738263905,
+      "samples": 5
+    },
+    "medium": {
+      "algorithm": "BLAKE2b",
+      "category": "medium",
+      "avg_time": 4.355213604867458e-06,
+      "min_time": 3.864988684654236e-06,
+      "max_time": 4.871981218457222e-06,
+      "median_time": 4.355038981884718e-06,
+      "avg_memory": 42330.8,
+      "max_memory": 42382,
+      "avg_input_size": 924,
+      "throughput_mb_s": 201.6807528022166,
+      "samples": 5
+    },
+    "large": {
+      "algorithm": "BLAKE2b",
+      "category": "large",
+      "avg_time": 8.403101237490773e-05,
+      "min_time": 1.5812984202057123e-05,
+      "max_time": 0.0001356110442429781,
+      "median_time": 7.734098471701145e-05,
+      "avg_memory": 66006.8,
+      "max_memory": 88913,
+      "avg_input_size": 58800,
+      "throughput_mb_s": 665.4702046128932,
+      "samples": 5
+    },
+    "patterns": {
+      "algorithm": "BLAKE2b",
+      "category": "patterns",
+      "avg_time": 1.6265804879367353e-05,
+      "min_time": 1.5362980775535107e-05,
+      "max_time": 1.916999462991953e-05,
+      "median_time": 1.5577010344713926e-05,
+      "avg_memory": 42330.8,
+      "max_memory": 42382,
+      "avg_input_size": 10080,
+      "throughput_mb_s": 595.3470212718892,
+      "samples": 5
+    }
+  }
+}
