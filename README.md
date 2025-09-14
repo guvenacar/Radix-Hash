@@ -53,7 +53,20 @@ Radix-Hash/
 │   └── run_nist.sh
 ├── requirements.txt
 └── README.md
+
 ```
+
+---
+
+## Algorithm Details & NIST Testing
+
+For full technical detail, see:
+
+* [Detailed Algorithm Steps (Radix‑Hash Article)](Radix-Hash-Article.md)
+* [NIST Statistical Test Report](NIST_Analysis_Report.txt)
+* [Benchmark Results](radix_hash_benchmark_report.txt)
+
+---
 
 ## Summary
 
