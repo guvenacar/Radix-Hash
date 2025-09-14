@@ -13,21 +13,6 @@ In this context, we propose **Radix-Hash**, a novel hash algorithm that combines
 
 The remainder of this paper is organized as follows: Section 2 details the algorithmic design of Radix-Hash. Section 3 presents the security and performance evaluations, including avalanche testing and statistical randomness analysis. Section 4 compares Radix-Hash with established hash functions. Section 5 discusses potential applications in cryptographic protocols, such as digital signatures and secure communication. Finally, Section 6 concludes the paper and outlines directions for future work.
 
-## Abstract
-
-This paper introduces **Radix-Hash**, a novel cryptographic hash algorithm designed to provide resistance against quantum computing attacks and to serve as a foundation for future cryptographic systems. Unlike conventional hash functions, Radix-Hash employs a base-3 transformation, digit interleaving, and modular arithmetic to enhance unpredictability and security. The algorithm demonstrates strong avalanche characteristics, uniform distribution of outputs, and resistance to collision and preimage attacks in preliminary analyses. Comparative evaluations against established algorithms such as SHA-2 and SHA-3 suggest that Radix-Hash achieves competitive performance while offering unique structural advantages. This work aims to contribute both a theoretical perspective and a practical alternative in the search for post-quantum cryptographic primitives.
-
-## 1. Introduction
-
-The rapid advancement of quantum computing poses significant threats to classical cryptographic systems, including digital signatures, secure communication protocols, and blockchain technologies. Existing widely deployed hash functions such as SHA-256 and SHA-3 were not originally designed with quantum resistance as their primary goal. As a result, researchers are actively exploring new cryptographic primitives that can withstand adversaries equipped with quantum capabilities.
-
-In this context, we propose **Radix-Hash**, a novel hash algorithm that combines radix-3 representation, interleaving operations, and modular arithmetic to achieve strong diffusion and unpredictability. Our design is motivated by two key objectives:
-
-1. To create a lightweight yet secure hash function that can be practically implemented in resource-constrained environments.
-2. To provide a post-quantum resistant alternative to existing hash algorithms by incorporating structural diversity and mathematical hardness assumptions beyond those commonly used in today’s standards.
-
-The remainder of this paper is organized as follows: Section 2 details the algorithmic design of Radix-Hash. Section 3 presents the security and performance evaluations, including avalanche testing and statistical randomness analysis. Section 4 compares Radix-Hash with established hash functions. Section 5 discusses potential applications in cryptographic protocols, such as digital signatures and secure communication. Finally, Section 6 concludes the paper and outlines directions for future work.
-
 ## 2. Design of Radix-Hash
 
 The design of Radix-Hash is based on three fundamental principles: **radix-3 transformation**, **digit interleaving**, and **modular arithmetic operations**. These steps collectively ensure high diffusion, unpredictability, and resistance to both classical and quantum-based attacks.
