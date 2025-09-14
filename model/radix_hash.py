@@ -6,7 +6,6 @@ This module is designed to be imported by the NIST test script.
 """
 import sys
 import os
-import time
 
 # M value: the power of 3 closest to 772-bit length.
 # 3**486 ≈ 770 bits, closest to the 772-bit target.
