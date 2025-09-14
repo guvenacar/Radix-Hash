@@ -4,12 +4,12 @@ This paper introduces **Radix-Hash**, a novel cryptographic hash algorithm desig
 
 ## 1. Introduction
 
-The rapid advancement of quantum computing poses significant threats to classical cryptographic systems, including digital signatures, secure communication protocols, and blockchain technologies. Existing widely deployed hash functions such as SHA-256 and SHA-3 were not originally designed with quantum resistance as their primary goal. As a result, researchers are actively exploring new cryptographic primitives that can withstand adversaries equipped with quantum capabilities.
+The rapid advancement of quantum computing poses significant threats to classical cryptographic systems, including digital signatures, secure communication protocols, and blockchain technologies. Existing widely deployed hash functions such as SHA-256 [8] and SHA-3 [6] were not originally designed with quantum resistance as their primary goal. As a result, researchers are actively exploring new cryptographic primitives that can withstand adversaries equipped with quantum capabilities.
 
 In this context, we propose **Radix-Hash**, a novel hash algorithm that combines radix-3 representation, interleaving operations, and modular arithmetic to achieve strong diffusion and unpredictability. Our design is motivated by two key objectives:
 
 1. To create a lightweight yet secure hash function that can be practically implemented in resource-constrained environments.
-2. To provide a post-quantum resistant alternative to existing hash algorithms by incorporating structural diversity and mathematical hardness assumptions beyond those commonly used in today’s standards.
+2. To provide a post-quantum resistant alternative to existing hash algorithms by incorporating structural diversity and mathematical hardness assumptions beyond those commonly used in today's standards.
 
 The remainder of this paper is organized as follows: Section 2 details the algorithmic design of Radix-Hash. Section 3 presents the security and performance evaluations, including avalanche testing and statistical randomness analysis. Section 4 compares Radix-Hash with established hash functions. Section 5 discusses potential applications in cryptographic protocols, such as digital signatures and secure communication. Finally, Section 6 concludes the paper and outlines directions for future work.
 
@@ -35,7 +35,7 @@ After interleaving, the digits undergo modular operations (addition, subtraction
 
 ### 2.5 Final Compression and Output
 
-The resulting sequence is recombined into a fixed-size binary output. For this study, Radix-Hash produces a **256-bit digest**, aligning with common cryptographic standards (e.g., SHA-256) for easier comparison and potential adoption.
+The resulting sequence is recombined into a fixed-size binary output. For this study, Radix-Hash produces a **256-bit digest**, aligning with common cryptographic standards (e.g., SHA-256 [8]) for easier comparison and potential adoption.
 
 ## 2. Radix-Hash Algorithm Definition
 
@@ -47,7 +47,7 @@ Radix-Hash is a hash algorithm that works with 772-bit blocks and does not rely 
 
 1. **Input → Bit String**
 
-   * The textual input is taken in UTF-8 format.
+   * The textual input is taken in UTF-8 format [9].
    * Each character is represented with 8 bits to form a bit string.
 
 2. **Padding → 772-bit Blocks**
@@ -183,7 +183,7 @@ The security model of Radix-Hash fundamentally differs from traditional cryptogr
 
 #### 3.2.1 Resistance Against Shor's Algorithm
 
-Shor's algorithm targets factoring and discrete logarithm problems. Radix-Hash:
+Shor's algorithm [2] targets factoring and discrete logarithm problems. Radix-Hash:
 
 * Does not involve factoring problem
 * Contains no discrete logarithm structure
@@ -193,7 +193,7 @@ Shor's algorithm targets factoring and discrete logarithm problems. Radix-Hash:
 
 #### 3.2.2 Resistance Against Grover's Algorithm
 
-Grover's algorithm provides quadratic speedup for brute-force attacks:
+Grover's algorithm [3] provides quadratic speedup for brute-force attacks:
 
 * Classical brute-force: 2^772 operations
 * With Grover: 2^386 quantum operations
@@ -230,7 +230,7 @@ Small input changes produce large output changes:
 
 ### 4.1 Test Methodology
 
-The randomness quality of Radix-Hash was evaluated using the NIST SP 800-22 test suite. Test parameters:
+The randomness quality of Radix-Hash was evaluated using the NIST SP 800-22 test suite [1]. Test parameters:
 
 * 100 sequences of 1M-bit each
 * 15 different statistical tests
@@ -257,7 +257,7 @@ Radix-Hash passed the following critical tests:
 
 ### 4.3 Cryptographic Significance of the Results
 
-The NIST test results demonstrate that Radix-Hash:
+The NIST test results [1] demonstrate that Radix-Hash:
 
 * Produces **true randomness**
 * Shows **pattern resistance**
@@ -280,9 +280,9 @@ Performance tests were conducted on the following system:
 | Algorithm      | Small Input (ms) | Large Input (ms) | Memory (KB)     | Throughput (MB/s) |
 | -------------- | ---------------- | ---------------- | --------------- | ----------------- |
 | **Radix-Hash** | **3.134**        | **1470.837**     | **41.7-4212.3** | **0.04**          |
-| SHA-256        | 0.008            | 0.110            | 41.4-64.1       | 494.77            |
-| SHA3-256       | 0.006            | 0.162            | 41.4-64.1       | 350.66            |
-| BLAKE2b        | 0.084            | 0.084            | 41.4-64.5       | 665.47            |
+| SHA-256 [8]    | 0.008            | 0.110            | 41.4-64.1       | 494.77            |
+| SHA3-256 [6]   | 0.006            | 0.162            | 41.4-64.1       | 350.66            |
+| BLAKE2b [7]    | 0.084            | 0.084            | 41.4-64.5       | 665.47            |
 
 ### 5.3 Performance Analysis and Academic Perspective
 
@@ -290,7 +290,7 @@ Performance tests were conducted on the following system:
 
 Performance differences are expected and reasonable:
 
-**SHA-256 (2001):** 23+ years of optimization
+**SHA-256 [8] (2001):** 23+ years of optimization
 
 * Hardware acceleration (AES-NI, specialized chips)
 * Assembly-level optimizations
@@ -304,14 +304,14 @@ Performance differences are expected and reasonable:
 
 #### 5.3.2 Post-Quantum Performance Context
 
-Performance characteristics of current post-quantum algorithm candidates:
+Performance characteristics of current post-quantum algorithm candidates [4]:
 
-* **CRYSTALS-Kyber:** \~10-100x slower than RSA
-* **CRYSTALS-Dilithium:** \~50-500x slower than ECDSA
-* **SPHINCS+:** \~1000x slower than RSA signatures
-* **Radix-Hash:** \~400-13,000x slower than SHA-256
+* **CRYSTALS-Kyber:** ~10-100x slower than RSA
+* **CRYSTALS-Dilithium:** ~50-500x slower than ECDSA
+* **SPHINCS+ [5]:** ~1000x slower than RSA signatures
+* **Radix-Hash:** ~400-13,000x slower than SHA-256
 
-**Observation:** Post-quantum security inherently involves performance trade-offs. Radix-Hash’s performance difference aligns with post-quantum cryptography trends.
+**Observation:** Post-quantum security inherently involves performance trade-offs. Radix-Hash's performance difference aligns with post-quantum cryptography trends.
 
 #### 5.3.3 Optimization Potential
 
@@ -319,10 +319,10 @@ Current implementation bottlenecks and solutions:
 
 | Bottleneck          | Current State    | Optimization Potential                |
 | ------------------- | ---------------- | ------------------------------------- |
-| Base-3 conversion   | Pure Python      | C/Rust: \~10-100x faster              |
-| Modular arithmetic  | Standard library | Specialized libraries: \~5-20x faster |
-| Memory allocation   | Dynamic          | Pre-allocated buffers: \~2-5x faster  |
-| Algorithm structure | Unoptimized      | Vectorization/SIMD: \~4-8x faster     |
+| Base-3 conversion   | Pure Python      | C/Rust: ~10-100x faster              |
+| Modular arithmetic  | Standard library | Specialized libraries: ~5-20x faster |
+| Memory allocation   | Dynamic          | Pre-allocated buffers: ~2-5x faster  |
+| Algorithm structure | Unoptimized      | Vectorization/SIMD: ~4-8x faster     |
 
 **Conservative optimization estimate: 200-4000x performance improvement possible**
 
@@ -330,7 +330,7 @@ Current implementation bottlenecks and solutions:
 
 | Use Case                     | Recommended Algorithm | Rationale                              |
 | ---------------------------- | --------------------- | -------------------------------------- |
-| High-frequency operations    | SHA-256               | Speed critical, quantum threat distant |
+| High-frequency operations    | SHA-256 [8]           | Speed critical, quantum threat distant |
 | Digital signatures           | SHA-256/ECDSA         | Established standard, widely supported |
 | Long-term data integrity     | **Radix-Hash**        | Quantum resistance fundamental         |
 | Future cryptographic systems | **Radix-Hash**        | Post-quantum preparedness              |
@@ -340,14 +340,14 @@ Current implementation bottlenecks and solutions:
 
 ### 6.1 Conventional Hash Functions
 
-**SHA-2 Family (SHA-256, SHA-512):**
+**SHA-2 Family (SHA-256, SHA-512) [8]:**
 
-* Merkle-Damgård structure
+* Merkle-Damgård structure [10]
 * Davies-Meyer compression function
 * Resistant to known cryptanalytic attacks
 * Vulnerable to quantum threats
 
-**SHA-3 (Keccak):**
+**SHA-3 (Keccak) [6]:**
 
 * Sponge construction
 * Permutation-based
@@ -356,13 +356,13 @@ Current implementation bottlenecks and solutions:
 
 ### 6.2 Post-Quantum Hash Approaches
 
-**SPHINCS+ (Stateless Hash-Based Signatures):**
+**SPHINCS+ (Stateless Hash-Based Signatures) [5]:**
 
 * Built on the security of hash functions
 * Quantum-resistant but very slow
 * Large signature sizes
 
-**XMSS/LMS (Stateful Hash-Based Signatures):**
+**XMSS/LMS (Stateful Hash-Based Signatures) [11]:**
 
 * Merkle tree structure
 * Quantum-secure but requires state management
@@ -382,7 +382,7 @@ This study provides the following contributions in the field of cryptographic ha
 
 1. **Paradigm shift:** Problem-independent security model
 2. **Base-3 transformation:** Innovative mathematical approach in hash design
-3. **NIST validation:** Cryptographic quality demonstrated with 99% success rate
+3. **NIST validation:** Cryptographic quality demonstrated with 99% success rate [1]
 4. **Quantum resistance:** Native post-quantum security
 5. **Performance characterization:** Roadmap for optimizations
 
@@ -447,34 +447,42 @@ Radix-Hash demonstrates that:
 
 Radix-Hash introduces a new paradigm in cryptographic hash functions. Its problem-independent security model provides critical advantages in the post-quantum era, while the use of base-3 transformation and mathematical chaos opens new directions for future research.
 
-The 99% success rate in NIST tests confirms the algorithm's cryptographic quality, and current performance characteristics indicate optimization potential. Radix-Hash is more than a hash algorithm—it is a manifesto for thinking differently about security.
+The 99% success rate in NIST tests [1] confirms the algorithm's cryptographic quality, and current performance characteristics indicate optimization potential. Radix-Hash is more than a hash algorithm—it is a manifesto for thinking differently about security.
 
 In preparing for future quantum threats, alternative approaches like Radix-Hash offer valuable research opportunities and potential solutions for the cryptography community.
 
 ## References
 
-\[1] National Institute of Standards and Technology, "A Statistical Test Suite for Random and Pseudorandom Number Generators for Cryptographic Applications," NIST Special Publication 800-22, 2010.
+[1] National Institute of Standards and Technology, "A Statistical Test Suite for Random and Pseudorandom Number Generators for Cryptographic Applications," NIST Special Publication 800-22, 2010.
 
-\[2] Shor, P. W., "Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer," SIAM Journal on Computing, vol. 26, no. 5, pp. 1484-1509, 1997.
+[2] Shor, P. W., "Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer," SIAM Journal on Computing, vol. 26, no. 5, pp. 1484-1509, 1997.
 
-\[3] Grover, L. K., "A Fast Quantum Mechanical Algorithm for Database Search," Proceedings of the 28th Annual ACM Symposium on Theory of Computing, pp. 212-219, 1996.
+[3] Grover, L. K., "A Fast Quantum Mechanical Algorithm for Database Search," Proceedings of the 28th Annual ACM Symposium on Theory of Computing, pp. 212-219, 1996.
 
-\[4] NIST Post-Quantum Cryptography Standardization, "Selected Algorithms 2022," [https://csrc.nist.gov/Projects/post-quantum-cryptography/selected-algorithms-2022](https://csrc.nist.gov/Projects/post-quantum-cryptography/selected-algorithms-2022)
+[4] NIST Post-Quantum Cryptography Standardization, "Selected Algorithms 2022," [https://csrc.nist.gov/Projects/post-quantum-cryptography/selected-algorithms-2022](https://csrc.nist.gov/Projects/post-quantum-cryptography/selected-algorithms-2022)
 
-\[5] Bernstein, D. J., et al., "SPHINCS+: Stateless Hash-Based Signatures," 2019.
+[5] Bernstein, D. J., et al., "SPHINCS+: Stateless Hash-Based Signatures," 2019.
 
-\[6] Keccak Team, "The Keccak SHA-3 submission," 2011.
+[6] Keccak Team, "The Keccak SHA-3 submission," 2011.
 
-\[7] Aumasson, J. P., et al., "BLAKE2: Simpler, Smaller, Fast as MD5," Applied Cryptography and Network Security, pp. 119-135, 2013.
+[7] Aumasson, J. P., et al., "BLAKE2: Simpler, Smaller, Fast as MD5," Applied Cryptography and Network Security, pp. 119-135, 2013.
+
+[8] National Institute of Standards and Technology, "Secure Hash Standard (SHS)," FIPS PUB 180-4, 2015.
+
+[9] The Unicode Consortium, "The Unicode Standard, Version 15.0.0," 2022.
+
+[10] Merkle, R. C., "One Way Hash Functions and DES," Advances in Cryptology - CRYPTO '89 Proceedings, pp. 428-446, 1990.
+
+[11] McGrew, D., et al., "Hash-Based Signatures," RFC 8554, 2019.
 
 ---
 
 **Author Information**
 
-* Name: \[Güven ACAR]
-* Affiliation: \[Independent Researcher]
-* Email: \[[guvnacar@gmail.com](mailto:guvnacar@gmail.com)]
-* ORCID: \[[https://orcid.org/0009-0000-4232-7405](https://orcid.org/0009-0000-4232-7405)]
+* Name: [Güven ACAR]
+* Affiliation: [Independent Researcher]
+* Email: [[guvnacar@gmail.com](mailto:guvnacar@gmail.com)]
+* ORCID: [[https://orcid.org/0009-0000-4232-7405](https://orcid.org/0009-0000-4232-7405)]
 
 **Conflict of Interest Statement:** The author declares no conflict of interest regarding this work.
 
