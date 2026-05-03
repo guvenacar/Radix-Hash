@@ -68,3 +68,30 @@ Apache 2.0 — see [LICENSE](LICENSE)
 ## TEKNOFEST 2026
 
 Developed for the TEKNOFEST 2026 Quantum Technologies Competition.
+
+## Digital Signature (Lamport OTS)
+
+Radix-Hash based quantum-resistant one-time signature scheme:
+
+```python
+from lamport_radix import keygen, sign, verify
+
+# Key generation
+private_key, public_key = keygen()
+
+# Sign
+signature = sign("my message", private_key)
+
+# Verify
+is_valid = verify("my message", signature, public_key)  # True
+is_valid = verify("tampered", signature, public_key)    # False
+```
+
+| Property | Value |
+|----------|-------|
+| Hash | Radix-Hash 772-bit |
+| Signature type | Lamport OTS |
+| Key size | 16 KB (private), 256×2×772-bit (public) |
+| Sign time | ~0.001s |
+| Verify time | ~0.08s |
+| Quantum resistant | ✓ Hash-based, proven secure |
